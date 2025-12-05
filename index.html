@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBOW Symptom Matcher Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #333; text-align: center; }
+        textarea { width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0056b3; }
+        #output { margin-top: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #007bff; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; padding: 8px; background: #e9ecef; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🩺 CBOW Medical Symptom Matcher</h1>
+    <p style="text-align: center; color: #666;">Powered by from-scratch C++ CBOW on 60 lines of medical text. Try: "abdominal pain burning"</p>
+    <textarea id="input" placeholder="Enter symptoms..."></textarea><br><br>
+    <button onclick="findMatches()">Find Related Symptoms</button>
+    <div id="output"></div>
+
+    <script>
+        // Load your pre-computed similarities (W2^T · W1 for context → target)
+        fetch('similarities.json')
+            .then(res => res.json())
+            .then(data => {
+                window.simData = data;  // { "pain": [["burning", 0.664], ["swelling", 0.422], ...] }
+                console.log('Loaded CBOW similarities!');
+            });
+
+        function findMatches() {
+            const input = document.getElementById('input').value.toLowerCase().trim();
+            if (!input || !window.simData) return alert('Load data first or enter symptoms!');
+            
+            const words = input.split(/\s+/).filter(w => w);
+            const matches = {};
+            
+            words.forEach(word => {
+                if (window.simData[word]) {
+                    window.simData[word].forEach(([related, score]) => {
+                        if (score > 0.15) {  // Threshold for relevance
+                            matches[related] = (matches[related] || 0) + score;
+                        }
+                    });
+                }
+            });
+            
+            const sorted = Object.entries(matches)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+            
+            let html = `<h3>Top Matches (from your 60-line model):</h3><ul>`;
+            if (sorted.length) {
+                sorted.forEach(([word, score]) => {
+                    html += `<li><strong>${word}</strong> (score: ${score.toFixed(3)})</li>`;
+                });
+            } else {
+                html += '<li>No strong matches — try more training data next time!</li>';
+            }
+            html += '</ul>';
+            document.getElementById('output').innerHTML = html;
+        }
+    </script>
+</body>
+</html>

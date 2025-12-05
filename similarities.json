@@ -1,0 +1,7 @@
+{
+  "pain": [["burning", 0.374], ["swelling", 0.053], ["abdominal", 0.141]],
+  "burning": [["pain", 0.664], ["radiates", 0.101], ["swelling", 0.016]],
+  "stools": [["relieved", 0.303], ["bloody", 0.108], ["burning", 0.196]],
+  "swelling": [["bloody", 0.592], ["black", 0.517], ["abdominal", 0.644]],
+  "abdominal": [["pain", 0.141], ["swelling", 0.644], ["body", -0.113]]
+}
