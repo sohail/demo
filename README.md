@@ -1,9 +1,9 @@
 # 🩺 CBOW Medical Symptom Matcher Demo
 
-- Live Demo: [https://demo-mocha-delta.vercel.app/](https://demo-mocha-delta.vercel.app/) *(deploy on Vercel for free!)*
-- Live Demo: [https://sohail.github.io/demo/](https://sohail.github.io/demo/) *(deploy on GitHub Pages for free!)*
+- Live Demo: [https://demo-mocha-delta.vercel.app/](https://demo-mocha-delta.vercel.app/) *(deployed on Vercel for free!)*
+- Live Demo: [https://sohail.github.io/demo/](https://sohail.github.io/demo/) *(deployed on GitHub Pages for free!)*
 
-A zero-overhead web demo of from scratch C++ [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~60 lines of medical text. 
+A zero overhead web demo of from scratch **C++** [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~14 lines of medical text (symptoms). 
 
 ## What It Does
 - **Input:** Type symptoms like "abdominal pain burning" or "bloody stools swelling".
@@ -13,9 +13,9 @@ A zero-overhead web demo of from scratch C++ [CBOW implementation](https://githu
 Even on tiny data, it captures stuff like "burning pain" or "bloody swelling". Scale to bigger datasets for real magic.
 
 ## Tech Stack
-- **Model:** Custom C++ CBOW (no libs, 16GB consumer PC, no GPU).
-- **Frontend:** 100% static HTML/JS, loads `similarities.json` client-side.
-- **Data:** Pre-computed top similarities from [Chat-Bot-CBOW training](https://github.com/KHAAdotPK/Chat-Bot-CBOW).
+- **Model:** Custom C++ CBOW (no libs, trained on 16GB consumer PC, no GPUs).
+- **Frontend:** 100% static HTML/JS, loads `similarities.json` at client side.
+- **Data:** Pre computed [top] similarities from [Chat-Bot-CBOW training](https://github.com/KHAAdotPK/Chat-Bot-CBOW).
 - **Wrapper:** Use [Python port](https://github.com/KHAAdotPK/CBOW-Python-Wrapper) for easy training.
 
 ### Built with ❤️ on my workbench... Questions? Open an issue!
