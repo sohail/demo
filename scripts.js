@@ -27,7 +27,7 @@ function findMatches() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10);
 
-    let html = `<h3>Top Matches (from 14 line model):</h3><ul>`;
+    let html = `<h3>Top Matches (from model trained on 14 lines of medical symptoms):</h3><ul>`;
     if (sorted.length) {
         sorted.forEach(([word, score]) => {
             html += `<li><strong>${word}</strong> (score: ${score.toFixed(3)})</li>`;
