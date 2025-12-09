@@ -80,6 +80,7 @@
             <li>Implementation: 100% hand-written C++ (no libraries)</li>
             <li>Context window: 4 (2 words left + 2 words right)</li>
             <li>Training: 50 epochs, lr=0.01, 10 negative samples, embeddings averaged (W1+W2)/2</li>
+            <li>0.001 L2 regularization strength applied during training to prevent overfitting</li>
             <li>Total tokens seen: ~130</li>
         </ul>
         <p>Despite the ridiculous lack of data, the model correctly learned that:</p>
