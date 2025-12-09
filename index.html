@@ -1,21 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBOW Symptom Matcher Demo</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <title>CBOW Symptom Embeddings – Trained on 14 Lines from Scratch in C++</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 { color: #1a6bb3; text-align: center; }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+        }
+        button {
+            background: #1a6bb3;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #155a94; }
+        #output { margin-top: 20px; }
+        .vocab {
+            columns: 3;
+            column-gap: 20px;
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+        footer { text-align: center; margin-top: 50px; color: #777; font-size: 14px; }
+    </style>
 </head>
-
 <body>
-    <h1>🩺 CBOW Medical Symptom Matcher</h1>
-    <p style="text-align: center; color: #666;">Powered by from-scratch C++ CBOW on 14 lines of medical text. Try:
-        "abdominal pain burning"</p>
-    <textarea id="input" placeholder="Enter symptoms..."></textarea><br><br>
-    <button onclick="findMatches()">Find Related Symptoms</button>
-    <div id="output"></div>
-</body>
 
+    <h1>CBOW Symptom Matcher</h1>
+    <p style="text-align:center; font-size:18px; color:#e63946;">
+        A from-scratch Word2Vec (CBOW) implementation in C++<br>
+        trained on <strong>just 14 lines</strong> of abdominal pain symptom descriptions
+    </p>
+
+    <div class="box">
+        <h2>How to use</h2>
+        <p>Type one or more words from the vocabulary below (e.g. <code>burning</code>, <code>pain</code>, <code>diarrhea</code>, <code>swelling</code>, <code>coughing</code>…) and click the button.</p>
+        <p>The model will instantly show you the most semantically similar symptoms it learned — even though it only saw ~130 words total!</p>
+
+        <textarea id="input" placeholder="Try these examples:&#10;burning&#10;pain relieved&#10;diarrhea constipation&#10;coughing&#10;abdominal swelling"></textarea><br>
+        <button onclick="findMatches()">Find Similar Symptoms</button>
+        <div id="output"></div>
+    </div>
+
+    <div class="box">
+        <h2>Training details (the crazy part)</h2>
+        <ul>
+            <li>Corpus: exactly <strong>14 lines</strong> of real abdominal pain symptom text</li>
+            <li>Vocabulary size: <strong>32 unique tokens</strong></li>
+            <li>Model: Continuous Bag-of-Words (CBOW) with negative sampling</li>
+            <li>Implementation: 100% hand-written C++ (no libraries)</li>
+            <li>Context window: 4 (2 words left + 2 words right)</li>
+            <li>Training: 50 epochs, lr=0.01, 10 negative samples, embeddings averaged (W1+W2)/2</li>
+            <li>Total tokens seen: ~130</li>
+        </ul>
+        <p>Despite the ridiculous lack of data, the model correctly learned that:</p>
+        <ul>
+            <li><strong>burning</strong> is very close to <strong>pain</strong></li>
+            <li><strong>relieved</strong> is very close to <strong>antacids</strong></li>
+            <li><strong>triggered / worsened</strong> go with <strong>coughing / jarring / movements</strong></li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Full vocabulary (32 words the model knows)</h2>
+        <div class="vocab">
+            burning · pain · relieved · by · antacids · radiates · to · other · parts · of · the · body · accompanied · black · or · bloody · stools · constipation · triggered · worsened · coughing · jarring · movements · abdominal · swelling · diarrhea · Pain · located · in · middle · abdomen · and
+        </div>
+    </div>
+
+    <footer>
+        Built from scratch in C++ • Trained on 14 lines • No Python, no PyTorch, no shortcuts<br>
+        Just to prove you can teach a neural net real semantic patterns with almost no data
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
 </html>
