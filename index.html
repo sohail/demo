@@ -21,11 +21,13 @@
                     <li>Learning rate decay</li>
                     <li>Negative sampling</li>
                     <li>Gradient clipping</li>
-                    <li>Subsampling of frequent words</li>
+                    <li>
+                        <p style="text-decoration: line-through;">Subsampling of frequent words</p>
+                    </li>
                     <li>L2 regularization</li>
                 </ul>
                 <p>However, on tiny datasets like this (only ~50 lines), Skip-gram still tends to collapse similarities
-                    to ±1.0 — a known challenge on ultra-small text.</p>
+                    to ±1.0,a known challenge on ultra-small text.</p>
                 <p><strong>Repos:</strong></p>
                 <p>
                     • <a href="https://github.com/KHAAdotPK/Skip-gram" target="_blank">Core Skip-gram
@@ -33,7 +35,7 @@
                     • <a href="https://github.com/KHAAdotPK/Chat-Bot-Skip-gram" target="_blank">Calculates cosine
                         Similarities ...</a>
                 </p>
-                <p>CBOW wins on tiny medical data — Skip-gram is still being tamed!</p>
+                <p>CBOW wins on tiny medical data; Skip-gram is still being tamed!</p>
             </div>
         </div>
 
@@ -50,7 +52,7 @@
                 <p>Type one or more words from the vocabulary below (e.g. <code>burning</code>, <code>pain</code>,
                     <code>diarrhea</code>, <code>swelling</code>, <code>coughing</code>…) and click the button.
                 </p>
-                <p>The model will instantly show you the most semantically similar symptoms it learned — even though it
+                <p>The model will instantly show you the most semantically similar symptoms it learned even though it
                     only saw ~130 words total!</p>
 
                 <textarea id="input"
