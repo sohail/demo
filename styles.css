@@ -211,3 +211,23 @@ footer {
         align-items: flex-start;
     }
 }
+
+/* Desktop: main content left, sidebar right */
+@media (min-width: 981px) {
+    .page-wrapper {
+        flex-direction: row;
+    }
+
+    .main-content {
+        order: 1;
+        /* appears first on desktop too, but visually left */
+    }
+
+    .sidebar {
+        order: 2;
+        width: 320px;
+        position: sticky;
+        top: 30px;
+        align-self: flex-start;
+    }
+}
