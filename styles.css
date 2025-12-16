@@ -231,3 +231,40 @@ footer {
         align-self: flex-start;
     }
 }
+
+
+
+h1 {
+    color: #0077b6;
+}
+
+.subtitle {
+    color: #2a9d8f;
+}
+
+/* replaces red */
+button {
+    background: #0077b6;
+}
+
+button:hover {
+    background: #005f8d;
+}
+
+.result-item {
+    background: #e8f5f3;
+    border-left: 4px solid #2a9d8f;
+}
+
+strong {
+    color: #0077b6;
+}
+
+.tooltip {
+    color: #2a9d8f;
+}
+
+.skip-gram-note {
+    border-left-color: #2a9d8f;
+    background: #e8f5f3;
+}
