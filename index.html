@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny CBOW Symptom Predictor: Learning Collocations from 14 Lines (From Scratch in C++)</title>
+
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -110,36 +112,40 @@
         -->
 
         <div class="sidebar">
-            <h3>About Skip-gram Version</h3>
-            <p>
-                I also built a full <strong>Skip-gram with negative sampling</strong> model from scratch in C++ with
-                advanced features:
-            </p>
-            <ul>
-                <li>Learning rate decay</li>
-                <li>Negative sampling</li>
-                <li>Gradient clipping</li>
-                <li>
-                    <p style="text-decoration: line-through;">Subsampling of frequent words</p>
-                </li>
-                <li>L2 regularization</li>
-            </ul>
-            <p>
-                It's now stable on tiny datasets! I can successfully produce meaningful similarities using
-                both W1 (semantic) and W1·W2ᵀ (predictive/collocation) vectors — no more collapse to extreme values.
-            </p>
-            <p>A full interactive Skip-gram demo just like this CBOW one is coming soon!</p>
-            <p><strong>Repos:</strong></p>
-            <p>
-                • <a href="https://github.com/KHAAdotPK/Skip-gram" target="_blank">Core Skip-gram implementation</a><br>
-                • <a href="https://github.com/KHAAdotPK/Chat-Bot-Skip-gram" target="_blank">Cosine similarity
-                    calculator(W1 & W1·W2ᵀ)</a>
-            </p>
-            <p>Stay tuned — 🔥</p>
+            <div class="skip-gram-note">
+                <h3>About Skip-gram Version</h3>
+                <p>
+                    I also built a full <strong>Skip-gram with negative sampling</strong> model from scratch in C++ with
+                    advanced features:
+                </p>
+                <ul>
+                    <li>Learning rate decay</li>
+                    <li>Negative sampling</li>
+                    <li>Gradient clipping</li>
+                    <li>
+                        <p style="text-decoration: line-through;">Subsampling of frequent words</p>
+                    </li>
+                    <li>L2 regularization</li>
+                </ul>
+                <p>
+                    It's now stable on tiny datasets! I can successfully produce meaningful similarities using
+                    both W1 (semantic) and W1·W2ᵀ (predictive/collocation) vectors — no more collapse to extreme values.
+                </p>
+                <p>A full interactive Skip-gram demo just like this CBOW one is coming soon!</p>
+                <p><strong>Repos:</strong></p>
+                <p>
+                    • <a href="https://github.com/KHAAdotPK/Skip-gram" target="_blank">Core Skip-gram
+                        implementation</a><br>
+                    • <a href="https://github.com/KHAAdotPK/Chat-Bot-Skip-gram" target="_blank">Cosine similarity
+                        calculator(W1 & W1·W2ᵀ)</a>
+                </p>
+                <p>Stay tuned — 🔥</p>
+            </div>
         </div>
     </div>
 
     <script src="scripts.js"></script>
+
 </body>
 
 </html>
