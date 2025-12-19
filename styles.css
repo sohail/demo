@@ -232,8 +232,36 @@ footer {
     }
 }
 
+/* Scores in the same vertical position */
+.result-item {
+    justify-content: flex-start;
+    /* Change from space-between */
+}
 
+.result-item strong {
+    flex: 1;
+    /* Takes up available space, pushes score to the right */
+    min-width: 0;
+    /* Allows long words to wrap if needed */
+}
 
+.score {
+    margin-left: auto;
+    /* Pushes the score to the far right */
+    white-space: nowrap;
+    /* Prevents score from wrapping */
+    text-align: center;
+    /* Optional: centers the text inside the score span */
+    min-width: 110px;
+    /* Forces all scores to have the same width → perfect alignment! */
+}
+
+/* Optional: make the info tooltip stay near the word, not affect alignment */
+.tooltip {
+    margin-left: 8px;
+}
+
+/* Current Color Scheme */
 h1 {
     color: #0077b6;
 }
