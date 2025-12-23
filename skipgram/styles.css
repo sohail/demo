@@ -1,0 +1,298 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    display: flex;
+    flex: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    gap: 40px;
+}
+
+.sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 30px;
+    align-self: flex-start;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 800px;
+}
+
+h1 {
+    color: #1a6bb3;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #e63946;
+    margin-bottom: 30px;
+}
+
+.box {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 28px;
+}
+
+textarea {
+    width: 100%;
+    height: 110px;
+    padding: 14px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+button {
+    background: #1a6bb3;
+    color: white;
+    padding: 13px 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #155a94;
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.results-list {
+    list-style: none;
+    padding: 0;
+}
+
+.result-item {
+    padding: 10px 14px;
+    margin: 8px 0;
+    background: #f0f8ff;
+    border-left: 4px solid #1a6bb3;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.result-item strong {
+    font-size: 18px;
+    color: #1a6bb3;
+}
+
+.score {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Tooltip feature */
+.tooltip {
+    cursor: help;
+    margin-left: 8px;
+    font-size: 14px;
+    color: #1a6bb3;
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 280px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -140px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.vocab {
+    columns: 3;
+    column-gap: 20px;
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.skip-gram-note {
+    background: #e8f4fd;
+    border-left: 6px solid #1a6bb3;
+    padding: 22px;
+    border-radius: 0 12px 12px 0;
+    font-size: 15px;
+    height: fit-content;
+}
+
+.skip-gram-note h3 {
+    margin-top: 0;
+    color: #1a6bb3;
+    font-size: 18px;
+}
+
+.skip-gram-note a {
+    color: #1a6bb3;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #777;
+    font-size: 14px;
+    background: #f8f9fa;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .page-wrapper {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Desktop: main content left, sidebar right */
+@media (min-width: 981px) {
+    .page-wrapper {
+        flex-direction: row;
+    }
+
+    .main-content {
+        order: 1;
+        /* appears first on desktop too, but visually left */
+    }
+
+    .sidebar {
+        order: 2;
+        width: 320px;
+        position: sticky;
+        top: 30px;
+        align-self: flex-start;
+    }
+}
+
+/* Scores in the same vertical position */
+.result-item {
+    justify-content: flex-start;
+    /* Change from space-between */
+}
+
+.result-item strong {
+    flex: 1;
+    /* Takes up available space, pushes score to the right */
+    min-width: 0;
+    /* Allows long words to wrap if needed */
+}
+
+.score {
+    margin-left: auto;
+    /* Pushes the score to the far right */
+    white-space: nowrap;
+    /* Prevents score from wrapping */
+    text-align: center;
+    /* Optional: centers the text inside the score span */
+    min-width: 110px;
+    /* Forces all scores to have the same width → perfect alignment! */
+}
+
+/* Optional: make the info tooltip stay near the word, not affect alignment */
+.tooltip {
+    margin-left: 8px;
+}
+
+/* Current Color Scheme */
+h1 {
+    color: #0077b6;
+}
+
+.subtitle {
+    color: #2a9d8f;
+}
+
+/* replaces red */
+button {
+    background: #0077b6;
+}
+
+button:hover {
+    background: #005f8d;
+}
+
+.result-item {
+    background: #e8f5f3;
+    border-left: 4px solid #2a9d8f;
+}
+
+strong {
+    color: #0077b6;
+}
+
+.tooltip {
+    color: #2a9d8f;
+}
+
+.skip-gram-note {
+    border-left-color: #2a9d8f;
+    background: #e8f5f3;
+}

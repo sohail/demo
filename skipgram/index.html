@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny CBOW Symptom Predictor: Learning Collocations from 14 Lines (From Scratch in C++)</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <h1>CBOW Symptom Collocation Predictor</h1>
+            <p class="subtitle">
+                <a href="https://github.com/KHAAdotPK/CBOW/blob/main/DOCUMENTS/Trained-Vectors-CBOW-usage.md">(Next-Token
+                    Prediction via Context)</a><br>
+                <a href="https://github.com/KHAAdotPK/CBOW">A from-scratch Word2Vec (CBOW) implementation in C++</a><br>
+                trained on <strong>just 14 lines</strong> of abdominal pain symptom descriptions
+            </p>
+
+            <div class="box">
+                <h2>How to use</h2>
+                <p>Type one or more words from the vocabulary below (e.g. <code>burning</code>, <code>pain</code>,
+                    <code>diarrhea</code>, <code>swelling</code>, <code>coughing</code>…) and click the button.
+                </p>
+                <p>
+                    The model will instantly show you the strongest symptom associations and collocations it learned —
+                    even from only ~130 tokens!
+                </p>
+
+                <textarea id="input"
+                    placeholder="Try these examples:&#10;burning&#10;pain&#10;relieved&#10;diarrhea constipation&#10;coughing&#10;abdominal swelling"></textarea><br>
+                <button onclick="findMatches()">Find Similar Symptoms</button>
+                <div id="output"></div>
+            </div>
+
+            <div class="box">
+                <h2>Training details (the crazy part)</h2>
+                <ul>
+                    <li>
+                        Corpus: exactly <strong>14 lines</strong> of real <a href="adult_abdominal_pain.txt">adult
+                            abdominal pain symptom text</a>
+                    </li>
+                    <li>Vocabulary size: <strong>32 unique tokens</strong></li>
+                    <li>Model: Continuous Bag-of-Words (CBOW) with negative sampling</li>
+                    <li>Implementation: 100% hand-written C++ (no libraries)</li>
+                    <li>Context window: 4 (2 left + 2 right)</li>
+                    <li>Training: 50 epochs, lr=0.01, 10 negative samples</li>
+                    <li>Embeddings: (W1 + W2)/2</li>
+                    <li>Total tokens seen: ~130</li>
+                </ul>
+                <p>Despite the lack of data, it learned real patterns like:</p>
+                <ul>
+                    <li><strong>body</strong> → <strong>parts</strong></li>
+                    <li><strong>stools</strong> → <strong>black</strong></li>
+                    <li><strong>relieved</strong> → <strong>antacids</strong></li>
+                    <li><strong>abdominal</strong> → <strong>swelling</strong></li>
+                    <li><strong>burning/bloody</strong> → <strong>pain</strong></li>
+                    <li><strong>triggered/coughing</strong> → <strong>by/jarring</strong></li>
+                    <li><strong>accompanied</strong> → <strong>pain</strong></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h2>Full vocabulary (32 words)</h2>
+                <div class="vocab">
+                    burning · pain · relieved · by · antacids · radiates · to · other · parts · of · the · body ·
+                    accompanied · black · or · bloody · stools · constipation · triggered · worsened · coughing ·
+                    jarring · movements · abdominal · swelling · diarrhea · Pain · located · in · middle · abdomen · and
+                </div>
+            </div>
+
+            <footer>
+                Built from scratch in C++ • Trained on 14 lines • No Python, no PyTorch, no shortcuts<br>
+                Just to prove you can teach a neural net real semantic patterns with almost no data
+            </footer>
+        </div>
+
+        <!-- LEFT SIDEBAR – Skip-gram Note -->
+        <!--
+        <div class="sidebar">
+            <div class="skip-gram-note">
+                <h3>About Skip-gram Version</h3>
+                <p>I also built a full <strong>Skip-gram</strong> model from scratch in C++ with all advanced features:
+                </p>
+                <ul>
+                    <li>Learning rate decay</li>
+                    <li>Negative sampling</li>
+                    <li>Gradient clipping</li>
+                    <li>
+                        <p style="text-decoration: line-through;">Subsampling of frequent words</p>
+                    </li>
+                    <li>L2 regularization</li>
+                </ul>
+                <p>However, on tiny datasets like this (only ~50 lines), Skip-gram still tends to collapse similarities
+                    to ±1.0, a known challenge on ultra-small text.</p>
+                <p><strong>Repos:</strong></p>
+                <p>
+                    • <a href="https://github.com/KHAAdotPK/Skip-gram" target="_blank">Core Skip-gram
+                        implementation</a><br>
+                    • <a href="https://github.com/KHAAdotPK/Chat-Bot-Skip-gram" target="_blank">Calculates cosine
+                        Similarities ...</a>
+                </p>
+                <p>CBOW wins on tiny medical data; Skip-gram is still being tamed!</p>
+            </div>
+        </div>
+        -->
+
+        <div class="sidebar">
+            <div class="skip-gram-note">
+                <h3>About Skip-gram Version</h3>
+                <p>
+                    I also built a full <strong>Skip-gram with negative sampling</strong> model from scratch in C++ with
+                    advanced features:
+                </p>
+                <ul>
+                    <li>Learning rate decay</li>
+                    <li>Negative sampling</li>
+                    <li>Gradient clipping</li>
+                    <li>
+                        <p style="text-decoration: line-through;">Subsampling of frequent words</p>
+                    </li>
+                    <li>L2 regularization</li>
+                </ul>
+                <p>
+                    It's now stable on tiny datasets! I can successfully produce meaningful similarities using
+                    both W1·W1ᵀ (semantic) and W1·W2ᵀ (predictive/collocation) vectors; no more collapse to extreme
+                    values.
+                </p>
+                <p>A full interactive Skip-gram demo just like this CBOW one is coming soon!</p>
+                <p><strong>Repos:</strong></p>
+                <p>
+                    • <a href="https://github.com/KHAAdotPK/Skip-gram" target="_blank">Core Skip-gram
+                        implementation</a><br>
+                    • <a href="https://github.com/KHAAdotPK/Chat-Bot-Skip-gram" target="_blank">Cosine similarity
+                        calculator(W1 & W1·W2ᵀ)</a>
+                </p>
+                <p>Stay tuned 🔥</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
