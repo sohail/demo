@@ -263,36 +263,36 @@ footer {
 
 /* Current Color Scheme */
 h1 {
-    color: #0077b6;
+    color: #b600b6;
 }
 
 .subtitle {
-    color: #2a9d8f;
+    color: #9d2a80;
 }
 
 /* replaces red */
 button {
-    background: #0077b6;
+    background: #b60089;
 }
 
 button:hover {
-    background: #005f8d;
+    background: #e8f5f3;
 }
 
 .result-item {
     background: #e8f5f3;
-    border-left: 4px solid #2a9d8f;
+    border-left: 4px solid #8a2a9d;
 }
 
 strong {
-    color: #0077b6;
+    color: #a700b6;
 }
 
 .tooltip {
-    color: #2a9d8f;
+    color: #902a9d;
 }
 
 .skip-gram-note {
-    border-left-color: #2a9d8f;
+    border-left-color: #902a9d;
     background: #e8f5f3;
 }
