@@ -1,6 +1,6 @@
 let simData = null;
 
-fetch('similarities.json')
+fetch('https://sohail.github.io/demo/skipgram/similarities.json')
     .then(res => res.json())
     .then(data => {
         simData = data;
