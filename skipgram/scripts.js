@@ -1,6 +1,6 @@
 let simData = null;
 
-fetch('https://sohail.github.io/demo/skipgram/similarities.json')
+fetch('https://demo-mocha-delta.vercel.app/skipgram/similarities.json')
     .then(res => res.json())
     .then(data => {
         simData = data;
