@@ -3,11 +3,13 @@ the patient has a persistent cough and chest tightness
 the patient has shortness of breath and chest pain
 shortness of breath causes fatigue and dizziness
 fatigue and dizziness reduce daily activity
+
 the patient reports stomach pain and nausea
 nausea and vomiting cause loss of appetite
 loss of appetite leads to weight loss
 stomach pain occurs after eating food
 digestive issues include bloating and stomach pain
+
 the patient experiences headaches and eye strain
 eye strain causes blurred vision and headaches
 headaches occur with light sensitivity
