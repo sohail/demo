@@ -12,13 +12,12 @@
 
 <body>
     <div class="page-wrapper">
-
         <!-- MAIN CONTENT -->
         <div class="main-content">
             <h1>Skip-gram Symptom Collocation Predictor</h1>
             <p class="subtitle">
-                <a href="https://github.com/KHAAdotPK/Skip-gram/blob/main/DOCUMENTS/Trained-Vectors-Skip-gram-usage.md">(Next-Token
-                    Prediction via Context)</a><br>
+                <a href="https://github.com/KHAAdotPK/Skip-gram/blob/main/DOCUMENTS/Trained-Vectors-Skip-gram-Usage.md">(Next-Token
+                    Prediction via target/center word)</a><br>
                 <a href="https://github.com/KHAAdotPK/Skip-gram">A from-scratch Word2Vec (Skip-gram) implementation in
                     C++</a><br>
                 trained on <strong>just 32 lines</strong> of general medical symptom descriptions
@@ -31,7 +30,7 @@
                 </p>
                 <p>
                     The model will instantly show you the strongest symptom associations and collocations it learned —
-                    even from only ~130 tokens!
+                    even from only ~210 tokens!
                 </p>
 
                 <textarea id="input"
@@ -44,7 +43,8 @@
                 <h2>Training details (the crazy part)</h2>
                 <ul>
                     <li>
-                        Corpus: exactly <strong>32 lines</strong> of real <a href="INPUT.txt">general medical symptom
+                        Corpus: exactly <strong>32 lines</strong> of <a
+                            href="https://demo-mocha-delta.vercel.app/skipgram/INPUT.txt">general medical symptom
                             text</a> </li>
                     <li>Vocabulary size: <strong>89 unique tokens</strong></li>
                     <li>Model: Skip-gram with negative sampling</li>
@@ -76,7 +76,7 @@
             </div>
 
             <footer>
-                Built from scratch in C++ • Trained on 14 lines • No Python, no PyTorch, no shortcuts<br>
+                Built from scratch in C++ • Trained on 32 lines • No Python, no PyTorch, no shortcuts<br>
                 Just to prove you can teach a neural net real semantic patterns with almost no data
             </footer>
         </div>
