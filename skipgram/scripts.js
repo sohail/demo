@@ -4,9 +4,9 @@ fetch('https://demo-mocha-delta.vercel.app/skipgram/similarities.json')
     .then(res => res.json())
     .then(data => {
         simData = data;
-        console.log('CBOW similarities loaded – ready for queries!');
+        console.log('Skip-gram similarities loaded – ready for queries!');
     })
-    .catch(err => console.error('Failed to load similarities.json', err));
+    .catch(err => console.error('Failed to load skipgram/similarities.json', err));
 
 function findMatches() {
     const input = document.getElementById('input').value.toLowerCase().trim();
@@ -38,7 +38,7 @@ function findMatches() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 15);  // Show top 15
 
-    let html = `<h3>Top Similar Symptoms (from 14-line trained CBOW model):</h3>`;
+    let html = `<h3>Top Similar Symptoms (from 32-line trained Skip-gram model):</h3>`;
 
     if (sorted.length === 0) {
         html += `<p>No strong matches found. Try common words like "pain", "burning", "diarrhea".</p>`;

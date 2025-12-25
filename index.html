@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,42 +14,54 @@
       padding: 60px 20px;
       margin: 0;
     }
+
     h1 {
       font-size: 2.8em;
       margin-bottom: 20px;
       color: #2c3e50;
     }
+
     p {
       font-size: 1.2em;
       max-width: 800px;
       margin: 0 auto 50px;
       line-height: 1.6;
     }
+
     .links {
       display: flex;
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
     }
+
     a.demo-link {
       display: block;
       width: 300px;
       padding: 40px 20px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-decoration: none;
       color: #2c3e50;
       font-size: 1.4em;
       font-weight: bold;
       transition: transform 0.3s, box-shadow 0.3s;
     }
+
     a.demo-link:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
-    .cbow { border-top: 8px solid #3498db; }
-    .skipgram { border-top: 8px solid #e74c3c; }
+
+    .cbow {
+      border-top: 8px solid #3498db;
+    }
+
+    .skipgram {
+      border-top: 8px solid #e74c3c;
+    }
+
     footer {
       margin-top: 100px;
       font-size: 0.9em;
@@ -56,19 +69,20 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Word2Vec Tiny Demos</h1>
   <p>Interactive demonstrations of classic Word2Vec architectures trained on minimal data.<br />
-  Explore how CBOW and Skip-gram learn word associations and similarities from scratch.</p>
+    Explore how CBOW and Skip-gram learn word associations and similarities from scratch.</p>
 
   <div class="links">
     <a href="/cbow" class="demo-link cbow">
       CBOW Demo<br />
-      <small>(Continuous Bag of Words – Symptom Collocation Predictor)</small>
+      <small>(Continuous Bag of Words – Symptom Collocation Predictor via W1·W2 Embeddings)</small>
     </a>
     <a href="/skipgram" class="demo-link skipgram">
       Skip-gram Demo<br />
-      <small>(Word Similarities via W1·W2 Embeddings)</small>
+      <small>(Skip-gram Symptom Collocation Predictor via W1·W2 Embeddings)</small>
     </a>
   </div>
 
@@ -76,4 +90,5 @@
     Built with love – From scratch implementations | December 2025
   </footer>
 </body>
+
 </html>
