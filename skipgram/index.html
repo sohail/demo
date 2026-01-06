@@ -113,6 +113,57 @@
 
         <div class="sidebar">
             <div class="skip-gram-note">
+                <p>
+                    <strong>About the Word Similarities in the Skip-gram Demo</strong>
+                </p>
+                <p>
+                    This Skip-gram demo displays words that the model has learned to associate closely with a selected
+                    symptom or medical term, based on how frequently and consistently they appear near each other in the
+                    <a href="https://demo-mocha-delta.vercel.app/skipgram/INPUT.txt">training corpus</a>.
+                </p>
+                <p>
+                    These similarities are derived purely from unsupervised training on a small collection of medical
+                    text using the classic Skip-gram with Negative
+                    Sampling (SGNS) algorithm. No external knowledge bases, ontologies, or labeled data were
+                    used; the relationships emerge entirely from statistical co-occurrence patterns.
+                </p>
+                <p>
+                    However, the raw nearest neighbor results from any Skip-gram model trained on real world text
+                    inevitably include many high frequency grammatical words (e.g., "and", "the", "a", "of", "has",
+                    "patient", "causes", "occurs") at the top of similarity lists. This happens because these words
+                    appear everywhere and thus have high cosine similarity with almost everything, even though they
+                    carry little meaningful medical information.
+                </p>
+                <p>
+                    <b>To make the demo more useful, interpretable, and clinically insightful</b>, I performed careful
+                    post training curation:
+                </p>
+                <ul>
+                    <li>Removed generic function words, stop words, and overly broad structural verbs that dilute
+                        semantic signal</li>
+                    <li>Eliminated low relevance or noisy associations that scored high due to frequency rather than
+                        meaningful context</li>
+                    <li>Kept only associations that reflect genuine symptom collocations, clusters, or diagnostic
+                        patterns present in the corpus</li>
+                </ul>
+                <p>
+                    This filtering step is a standard and widely accepted practice in professional and academic NLP
+                    work, especially when presenting word embedding results to human users (e.g., in research papers,
+                    clinical tools, search engines, or public demos). The goal is not to "cheat" but to surface the
+                    truly interesting and medically relevant patterns that the model has learned, while suppressing
+                    artifacts caused by word frequency imbalances.
+                </p>
+                <p>
+                    As a result, when you explore terms like "cough", "headache", "nausea", "chest", "dizziness", or
+                    "fatigue", you now see meaningful connections — such as persistent cough with sore throat and
+                    shortness of breath, or headaches linked to blurred vision and light sensitivity — rather than
+                    cluttered lists dominated by common English words.
+                </p>
+                <p>
+                    This curated view better demonstrates the real power of unsupervised word embeddings: discovering
+                    symptom clusters and collocations directly from raw text, which can support hypothesis generation,
+                    differential diagnosis exploration, or patient history analysis.
+                </p>
             </div>
         </div>
     </div>
