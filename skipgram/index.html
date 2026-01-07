@@ -47,29 +47,38 @@
                             href="https://demo-mocha-delta.vercel.app/skipgram/INPUT.txt">general medical symptom
                             text</a> </li>
                     <li>Vocabulary size: <strong>89 unique tokens</strong></li>
-                    <li>Model: Skip-gram with negative sampling</li>
+                    <li>Model: Skip-gram with negative sampling (SGNS not sued in training this model)</li>
                     <li>Implementation: 100% hand-written C++ (no libraries)</li>
-                    <li>Context window: 4 (2 left + 2 right)</li>
-                    <li>Training: 8 epochs, lr 0.025, 5 negative samples, lr decay 0.0005</li>
+                    <li>Context window: 8 (4 left + 4 right)</li>
+                    <li>Training for 40 epochs, Learning Rate: 0.001, Negative Samples: 0, lr decay: 0.0, regularization
+                        Strength: 0.01 </li>
                     <li>Embeddings: (W1 . W2)</li>
                     <li>Total tokens seen: ~210</li>
                 </ul>
                 <p>Despite the lack of data, it learned real patterns like:</p>
                 <ul>
-                    <li><strong>body</strong> → <strong>parts</strong></li>
-                    <li><strong>stools</strong> → <strong>black</strong></li>
-                    <li><strong>relieved</strong> → <strong>antacids</strong></li>
-                    <li><strong>abdominal</strong> → <strong>swelling</strong></li>
-                    <li><strong>burning/bloody</strong> → <strong>pain</strong></li>
-                    <li><strong>triggered/coughing</strong> → <strong>by/jarring</strong></li>
-                    <li><strong>accompanied</strong> → <strong>pain</strong></li>
+                    <li><strong>patient</strong> → <strong>has chills</strong></li>
+                    <li><strong>sore</strong> → <strong>joint</strong></li>
+                    <li><strong>stiffness</strong> → <strong>tightness</strong></li>
+                    <li><strong>stomach</strong> → <strong>bloating</strong></li>
+                    <li><strong>sudden</strong> → <strong>dizziness</strong></li>
+                    <li><strong>headache</strong> → <strong>and tightness</strong></li>
+                    <li><strong>bloating</strong> → <strong>digestive</strong></li>
                 </ul>
             </div>
 
             <div class="box">
                 <h2>Full vocabulary (89 words)</h2>
                 <div class="vocab">
-                    the · patient · has · a · persistent · cough · and · sore · throat · chest · tightness · shortness · of · breath · pain · causes · fatigue · dizziness · reduce · daily · activity · reports · stomach · nausea · vomiting · cause · loss · appetite · leads · to · weight · occurs · after · eating · food · digestive · issues · include · bloating · experiences · headaches · eye · strain · blurred · vision · occur · with · light · sensitivity · worsens · joint · muscle · stiffness · difficulty · walking · reduced · mobility · cramps · sudden · physical · anxiety · trouble · sleeping · low · levels · irritability · increases · heart · rate · irregular · heartbeat · fever · chills · sweating · body · aches · during · episodes · numbness · in · fingers · hands · tingling · discomfort · affects · grip · strength · nerve ·
+                    the · patient · has · a · persistent · cough · and · sore · throat · chest · tightness · shortness ·
+                    of · breath · pain · causes · fatigue · dizziness · reduce · daily · activity · reports · stomach ·
+                    nausea · vomiting · cause · loss · appetite · leads · to · weight · occurs · after · eating · food ·
+                    digestive · issues · include · bloating · experiences · headaches · eye · strain · blurred · vision
+                    · occur · with · light · sensitivity · worsens · joint · muscle · stiffness · difficulty · walking ·
+                    reduced · mobility · cramps · sudden · physical · anxiety · trouble · sleeping · low · levels ·
+                    irritability · increases · heart · rate · irregular · heartbeat · fever · chills · sweating · body ·
+                    aches · during · episodes · numbness · in · fingers · hands · tingling · discomfort · affects · grip
+                    · strength · nerve ·
                 </div>
             </div>
 
