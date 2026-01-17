@@ -3,11 +3,14 @@
 - Live Demo: [https://demo-mocha-delta.vercel.app/](https://demo-mocha-delta.vercel.app/) *(deployed on Vercel for free!)*
 - Live Demo: [https://sohail.github.io/demo/](https://sohail.github.io/demo/) *(deployed on GitHub Pages for free!)*
 
-A zero overhead web demo of from scratch **C++** [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~14 lines of medical text (symptoms, with 32 unique words/tokens) and *C++* [Skip-gram implementation](https://github.com/KHAAdotPK/Skip-gram) trained on just ~32 lines of medical text (symptoms, with 210 total words/tokens out of which 89 were unique). 
+A zero overhead web demo of from scratch **C++** [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~14 lines of medical text (symptoms, with 32 unique words/tokens) and [Skip-gram implementation](https://github.com/KHAAdotPK/Skip-gram) trained on just ~32 lines of medical text (symptoms, with 210 total words/tokens out of which 89 were unique). 
 
 ## What It Does
 - **Input:** Type symptoms like "abdominal", "stools" or "sore".
-- **Output:** Instantly shows the most similar concepts/phrases learned by the model (using pre computed (W1 + W2ᵀ)/2 cosine similarities).
+- **Output:** Instantly shows the most similar tokens/concepts using cosine similarity between averaged embeddings:  
+    - (u = (W₁[i] + W₂ᵀ[i])/2 , v = (W₁[j] + W₂ᵀ[j])/2)
+    - cosine_similarity = dot(u, vᵀ) / (‖u‖₂ × ‖v‖₂)
+    - (with the final value clamped to the range [-1, 1])    
 - **Example:** "burning" → "pain (0.664)", so the demos try to get the medical associations between words.
 
 Even on tiny data, the models have captured collocations like "burning pain", "patient has daily chills", "bloody stools", "sore joints" or "fever chills". Scale to bigger datasets for real magic.
