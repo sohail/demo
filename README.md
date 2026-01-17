@@ -1,21 +1,21 @@
-# 🩺 CBOW Medical Symptom Matcher Demo
+# 🩺 A Demonstration Of Word2Vec Medical Symptoms Collocation Matcher
 
 - Live Demo: [https://demo-mocha-delta.vercel.app/](https://demo-mocha-delta.vercel.app/) *(deployed on Vercel for free!)*
 - Live Demo: [https://sohail.github.io/demo/](https://sohail.github.io/demo/) *(deployed on GitHub Pages for free!)*
 
-A zero overhead web demo of from scratch **C++** [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~14 lines of medical text (symptoms). 
+A zero overhead web demo of from scratch **C++** [CBOW implementation](https://github.com/KHAAdotPK/CBOW) trained on just ~14 lines of medical text (symptoms, with 32 unique words/tokens) and *C++* [Skip-gram implementation](https://github.com/KHAAdotPK/Skip-gram) trained on just ~32 lines of medical text (symptoms, with 210 total words/tokens out of which 89 were unique). 
 
 ## What It Does
-- **Input:** Type symptoms like "abdominal pain burning" or "bloody stools swelling".
-- **Output:** Instantly shows the most similar concepts/phrases learned by the model (using pre computed W1 . W1 and W1 . W2ᵀ cosine similarities).
-- **Example:** "burning" → "pain (0.664)", it gets medical associations.
+- **Input:** Type symptoms like "abdominal", "stools" or "sore".
+- **Output:** Instantly shows the most similar concepts/phrases learned by the model (using pre computed (W1 + W2ᵀ)/2 cosine similarities).
+- **Example:** "burning" → "pain (0.664)", so the demos try to get the medical associations between words.
 
-Even on tiny data, it captures stuff like "burning pain" or "bloody swelling". Scale to bigger datasets for real magic.
+Even on tiny data, the models have captured collocations like "burning pain", "patient has daily chills", "bloody stools", "sore joints" or "fever chills". Scale to bigger datasets for real magic.
 
 ## Tech Stack
-- **Model:** Custom C++ CBOW (no libs, trained on 16GB consumer PC, no GPUs).
+- **Model:** Custom C++ CBOW and Skip-gram implementations (no libs, trained on 16GB consumer PC, no GPUs).
 - **Frontend:** 100% static HTML/JS, loads `similarities.json` at client side.
-- **Data:** Pre computed [top] similarities from [Chat-Bot-CBOW training](https://github.com/KHAAdotPK/Chat-Bot-CBOW).
+- **Data:** Pre computed [top] similarities from [Chat-Bot-CBOW training](https://github.com/KHAAdotPK/Chat-Bot-CBOW) and [Chat-Bot-Skip-gram training](https://github.com/KHAAdotPK/Chat-Bot-Skip-gram).
 - **Wrapper:** Use [Python port](https://github.com/KHAAdotPK/CBOW-Python-Wrapper) for easy training.
 
 ### Built with ❤️ on my workbench... Questions? Open an issue!
@@ -24,5 +24,7 @@ Even on tiny data, it captures stuff like "burning pain" or "bloody swelling". S
 
 ## Related Repos
 - [CBOW C++ Core for training](https://github.com/KHAAdotPK/CBOW)
-- [Similarity Scripts for pre-computing similarities](https://github.com/KHAAdotPK/Chat-Bot-CBOW)
+- [Skip-gram C++ Core for training](https://github.com/KHAAdotPK/Skip-gram)
+- [CBOW similarity scripts for pre-computing similarities](https://github.com/KHAAdotPK/Chat-Bot-CBOW)
+- [Skip-gram similarity scripts for pre-computing similarities](https://github.com/KHAAdotPK/Chat-Bot-Skip-gram)
 - [Python Wrapper over C++ CBOW Core](https://github.com/KHAAdotPK/CBOW-Python-Wrapper)
