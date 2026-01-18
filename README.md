@@ -1,4 +1,4 @@
-# 🩺 A Demonstration Of Word2Vec Medical Symptoms Collocation Matcher
+# 🩺 A Demonstration Of Word2Vec Medical Symptoms Collocation Predictor
 
 - Live Demo: [https://demo-mocha-delta.vercel.app/](https://demo-mocha-delta.vercel.app/) *(deployed on Vercel for free!)*
 - Live Demo: [https://sohail.github.io/demo/](https://sohail.github.io/demo/) *(deployed on GitHub Pages for free!)*
