@@ -1,0 +1,12 @@
+1. Normalise disease vectors
+    - After summing, divide by the number of symptoms (i.e., use the average instead of the sum). This prevents longer symptom lists from dominating.
+    - Also normalise each disease vector to unit length before storing (or during similarity calculation). This can sometimes help, but if directions are already similar, it won't change much.
+
+2. Larget context window and embedding vectors
+    - For that I need better compute.
+    - Use cloud to train word embeddings.
+
+3. Sum of vectors with small vocabulary (just 28 unique symptoms)
+    - Disease vectors are sums of symptom word vectors.
+      If several diseases share the same (or very similar) sets of symptoms, their summed vectors will point in nearly the same direction.
+      With only 8 dimensions, the space is too small to push them apart.    
